@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rebecca's English 🛍️</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@600;700&display=swap">
+<style>
+:root{--bg:#fff3f8;--ink:#3b2a4a;--pink:#ff7eb6;--lav:#b69cff;--mint:#6fdcb8;--sun:#ffd86b;--card:#fff;--soft:#f3e8ff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+*,*:before,*:after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Nunito',system-ui,sans-serif;font-weight:700;background-image:radial-gradient(circle at 10% 0,#ffe0ef 0,transparent 40%),radial-gradient(circle at 100% 20%,#e6dcff 0,transparent 35%)}
+h1,h2,.f{font-family:'Fredoka','Nunito',system-ui,sans-serif}
+.wrap{max-width:560px;margin:0 auto;padding:16px 14px 40px}
+h1{font-size:26px;margin:4px 0 2px;font-weight:600}
+.sub{margin:0 0 12px;opacity:.7;font-size:14px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:4px 0 10px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5}
+.tab{flex:none;border:0;border-radius:999px;padding:9px 14px;background:#fff;color:var(--ink);font:600 15px 'Fredoka',system-ui,sans-serif;box-shadow:0 2px 0 #e7d6f5;cursor:pointer}
+.tab.on{background:var(--pink);color:#fff;box-shadow:0 2px 0 #e0559a}
+h2{font-size:21px;margin:8px 0 4px;font-weight:600}
+.hint{font-size:14px;opacity:.75;margin:0 0 12px}
+.bar{height:10px;background:#fff;border-radius:9px;overflow:hidden;margin:0 0 14px}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--lav));border-radius:9px;transition:width .4s}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fc{aspect-ratio:1;perspective:700px;touch-action:pan-y;cursor:pointer;user-select:none;-webkit-user-select:none}
+.in{position:relative;width:100%;height:100%;transition:transform .55s cubic-bezier(.3,1.3,.5,1);transform-style:preserve-3d}
+.fc.flip .in{transform:rotateY(180deg)}
+.fa,.fb{position:absolute;inset:0;border-radius:22px;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:10px;box-shadow:0 4px 0 rgba(120,80,160,.18)}
+.fa{background:var(--card);border:3px solid var(--c,#ffc2de)}
+.fa .e{font-size:38px;line-height:1;margin-bottom:8px}
+.fa .w{font:600 19px/1.15 'Fredoka',system-ui,sans-serif}
+.fb{background:var(--c,#ffc2de);transform:rotateY(180deg);color:var(--ink)}
+.fb .w{font:600 19px/1.2 'Fredoka',system-ui,sans-serif}
+.fb .e{font-size:26px;margin-top:8px}
+.btn{border:0;border-radius:16px;padding:12px 18px;background:var(--lav);color:#fff;font:600 16px 'Fredoka',system-ui,sans-serif;box-shadow:0 3px 0 #8d6fe0;cursor:pointer}
+.btn.alt{background:var(--mint);box-shadow:0 3px 0 #3fb68f}
+.row{display:flex;gap:10px;justify-content:center;margin:16px 0 4px;flex-wrap:wrap}
+.q{background:#fff;border-radius:20px;padding:14px;margin:0 0 12px;box-shadow:0 3px 0 #ecdcf7;border:3px solid transparent}
+.q.ok{border-color:var(--mint)}.q.no{border-color:#ff8a8a}
+.ru{font-size:16px;line-height:1.4;margin:0 0 10px}
+.q input{width:100%;font:700 16px 'Nunito',system-ui,sans-serif;padding:11px 12px;border-radius:14px;border:2px solid #e3d3f3;background:var(--soft);color:var(--ink);outline:none}
+.q input:focus{border-color:var(--lav)}
+.res{font-size:14px;margin:8px 0 0;line-height:1.35}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:0;border-radius:14px;padding:9px 14px;background:var(--soft);color:var(--ink);font:600 16px 'Fredoka',system-ui,sans-serif;box-shadow:0 2px 0 #ddc9f2;cursor:pointer}
+.chip.good{background:var(--mint)}.chip.bad{background:#ffb3b3;animation:sh .3s}
+.gap{display:inline-block;min-width:70px;border-bottom:3px dashed var(--pink);text-align:center;color:var(--pink)}
+.gap.f2{border-bottom-style:solid;color:#2a9a77;border-color:var(--mint)}
+.m{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.m button{border:3px solid #eadcf7;background:#fff;color:var(--ink);border-radius:16px;padding:10px 8px;font:700 14px/1.3 'Nunito',system-ui,sans-serif;text-align:left;cursor:pointer;min-height:84px}
+.m button.sel{border-color:var(--pink);background:#ffe9f3}
+.m button.done{border-color:var(--c);background:var(--c);opacity:.95;cursor:default}
+.m button.bad{animation:sh .3s;border-color:#ff8a8a}
+@keyframes sh{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.win{text-align:center;font:600 22px 'Fredoka',system-ui,sans-serif;margin:14px 0;color:#d6458b}
+@media(prefers-reduced-motion:reduce){.in{transition:none}.chip.bad,.m button.bad{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Rebecca in New York 🗽🛍️</h1>
+<p class="sub">5 упражнений: тапай, свайпай и печатай ✨</p>
+<div class="tabs" id="tabs"></div>
+<div id="app"></div>
+</div>
+<script>
+const COL=['#ffc2de','#d7c7ff','#bdf0dd','#ffe9a3','#bfe3ff','#ffd0b8'];
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+const $=h=>{const d=document.createElement('div');d.innerHTML=h.trim();return d.firstChild};
+const norm=s=>s.toLowerCase().replace(/[’‘`]/g,"'").replace(/[^\p{L}\p{N}\s']/gu,' ').replace(/\s+/g,' ').trim();
+
+const EX1=[["However","🌈","однако"],["Nevertheless","🦋","тем не менее"],["Nonetheless","✨","всё же"],["On the one hand","☝️","с одной стороны"],["On the other hand","🖐️","с другой стороны"],["Although / Though","🍭","хотя"],["Even though","🧁","даже если / хотя"],["Moreover","🌸","более того"],["Furthermore","💫","кроме того"],["In addition to that","🎀","в дополнение к этому"],["Also","🌼","также"],["Besides","🍓","кроме того"],["Therefore","🧸","поэтому"],["Thus","🪄","таким образом"],["Hence","🔮","следовательно"],["As a result","🍀","в результате"],["Consequently","🐣","следовательно"]];
+const EX2=[["Exhausted","😫","истощённый, вымотанный"],["Confused","😵‍💫","смущённый"],["Stressed","😰","в стрессе, напряжённый"],["Furious","😡","взбешённый, в ярости"],["Pleased","😊","довольный"],["Worried","😟","взволнованный, обеспокоенный"],["Terrible","😖","ужасно; ужасный"],["In a good / bad mood","🙂","в хорошем / плохом настроении"],["Annoyed","😒","раздражённый"],["Down","😔","подавленный, грустный"],["Fed up","😤","сыт по горло, надоело"],["Relaxed","😌","расслабленный"],["Upset","💔","расстроенный"],["Disappointed","😞","разочарованный"],["Guilty","😬","виноватый"]];
+
+const EX3=[["Ребекка Блумвуд работала журналисткой в Нью-Йорке и обожала ходить по магазинам. 🗽","Rebecca Bloomwood worked as a journalist in New York and loved shopping."],
+["Она часто была довольна, когда находила красивое платье или новую пару обуви. 😊","She was often pleased when she found a beautiful dress or a new pair of shoes."],
+["Хотя у Ребекки было много работы, она всегда находила время, чтобы ходить по магазинам. 😍","Although Rebecca had a lot of work, she always found time to visit the shops."],
+["С одной стороны, шопинг делал её счастливой, но с другой стороны, она часто тратила слишком много денег. 🛍️","On the one hand, shopping made her happy, but on the other hand, she often spent too much money."],
+["Однажды в субботу Ребекка заволновалась, потому что купила три дорогие сумки за один день. 😰","One Saturday, Rebecca felt worried because she bought three expensive bags in one afternoon."],
+["Она растерялась и не знала, как сможет за всё заплатить. 😵","She felt confused and did not know how she could pay for everything."],
+["В понедельник утром она была в стрессе, потому что ей нужно было написать важную статью. 😓","On Monday morning, she was stressed because she had an important article to write."],
+["После работы она была измотана, потому что всю ночь писала статью. 😫","She was exhausted after work because she wrote the article all night."],
+["Более того, её редактор был зол, потому что она закончила статью поздно. 😠","Moreover, her editor was angry because she finished the article late."],
+["Ребекка пришла в ярость, когда редактор раскритиковал её работу. 😡","Rebecca became furious when her editor criticized her work."],
+["Она была раздражена всеми и пошла домой в плохом настроении. 😒","She was annoyed with everyone and went home in a bad mood."]];
+
+const EX4=[["Yesterday Rebecca ___ a beautiful scarf. 🧣","куплен — купила",["buyed","bought","buy"],1],
+["She was ___ because she lost her wallet. 👛","взволнованная",["worried","worry","worries"],0],
+["Her editor ___ angry when she came late. ⏰","был",["is","were","was"],2],
+["After the party she felt ___ — she danced all night! 💃","измотанная",["exhaust","exhausted","exhausting"],1],
+["Rebecca ___ home in a bad mood. 🏠","пошла",["goed","go","went"],2],
+["She was ___ with the noise in the shop. 🔊","раздражённая",["annoy","annoying","annoyed"],2],
+["She ___ guilty when she checked her bank account. 💳","почувствовала",["felt","feeled","feel"],0],
+["Her friend ___ her a funny story. 📖","рассказала",["telled","told","tell"],1],
+["The editor criticized her work, so she became ___. 🔥","в ярости",["fury","furiously","furious"],2],
+["She ___ about money all week, so she felt ___. 😔","не думала… подавленной → выбери первое слово",["didn't think","didn't thought","not think"],0]];
+
+const EX5=[["Besides, she said that many New York shops were too attractive for a shopaholic. 🛍️","Кроме того, она сказала, что многие магазины Нью-Йорка были слишком привлекательными для шопоголика."],
+["Also, Rebecca learned an important lesson about money. 💡","Также Ребекка усвоила важный урок о деньгах."],
+["Therefore, she decided to make a shopping plan. 😌","Поэтому она решила составить план покупок."],
+["Thus, she stopped buying things she did not really need. 🧠","Таким образом, она перестала покупать вещи, которые ей на самом деле не были нужны."],
+["Hence, Rebecca saved more money the following month. 👀","Следовательно, в следующем месяце Ребекка сэкономила больше денег."],
+["As a result, she felt less stressed and more confident. 💰","В результате она чувствовала меньше стресса и стала более уверенной в себе."],
+["Consequently, Rebecca had a much better mood and enjoyed her life in New York more. 🌟","Следовательно, у Ребекки стало намного лучше настроение, и она стала больше наслаждаться жизнью в Нью-Йорке."],
+["Though she still loved shopping, she finally learned to control herself. 😍","Хотя она всё ещё любила ходить по магазинам, наконец она научилась себя контролировать. 🛍️❤️"]];
+
+const T=[["1 🌈","Linking words"],["2 😫","Feelings"],["3 ✍️","Translate"],["4 🧩","Past Simple"],["5 🔗","Match"]];
+const tabs=document.getElementById('tabs'),app=document.getElementById('app');
+T.forEach((t,i)=>{const b=$(`<button class="tab">${t[0]}</button>`);b.onclick=()=>show(i);tabs.appendChild(b)});
+
+function head(t,h){return $(`<div><h2>${t}</h2><p class="hint">${h}</p><div class="bar"><i></i></div></div>`)}
+function prog(root,n,tot){root.querySelector('.bar i').style.width=(100*n/tot)+'%'}
+
+function cards(data,title,hint){
+  const r=head(title,hint),g=$('<div class="grid"></div>');let seen=new Set;
+  r.appendChild(g);
+  const build=()=>{g.innerHTML='';seen=new Set;prog(r,0,1);
+    data.forEach((d,i)=>{const c=COL[i%COL.length];
+      const el=$(`<div class="fc" style="--c:${c}"><div class="in"><div class="fa"><div class="e">${d[1]}</div><div class="w">${d[0]}</div></div><div class="fb"><div class="w">${d[2]}</div><div class="e">${d[1]}</div></div></div></div>`);
+      let x0=0;
+      el.addEventListener('pointerdown',e=>{x0=e.clientX});
+      el.addEventListener('pointerup',e=>{const dx=Math.abs(e.clientX-x0);if(dx<10||dx>25){el.classList.toggle('flip');if(el.classList.contains('flip')){seen.add(i);prog(r,seen.size,data.length)}}});
+      g.appendChild(el)})};
+  build();
+  const row=$('<div class="row"></div>');
+  const a=$('<button class="btn">🔀 Перемешать</button>');a.onclick=()=>{data=shuffle(data);build()};
+  const b=$('<button class="btn alt">🔄 Заново</button>');b.onclick=build;
+  row.append(a,b);r.appendChild(row);return r}
+
+function ex3(){
+  const r=head('Переведи на английский ✍️','Напиши перевод и нажми «Проверить». Эмодзи и точки печатать не нужно 🙂');let done=0;
+  const items=EX3.map((d,i)=>{const q=$(`<div class="q"><p class="ru">${i+1}. ${d[0]}</p><input type="text" autocomplete="off" autocapitalize="sentences" spellcheck="false" placeholder="English…"><p class="res"></p></div>`);r.appendChild(q);return q});
+  const check=(q,i)=>{const v=q.querySelector('input').value,ok=norm(v)===norm(EX3[i][1]);
+    q.className='q '+(ok?'ok':'no');q.querySelector('.res').innerHTML=ok?'✅ Верно! 🎉':'❌ Почти! Правильно: <b>'+EX3[i][1]+'</b>';return ok};
+  const btn=$('<div class="row"><button class="btn">Проверить всё ✅</button></div>');
+  const out=$('<div class="win"></div>');
+  btn.firstChild.onclick=()=>{let n=0;items.forEach((q,i)=>{if(check(q,i))n++});prog(r,n,EX3.length);out.textContent=`${n} из ${EX3.length} ${n==EX3.length?'🏆 Супер!':n>6?'🌟 Отлично!':'💪 Попробуй ещё раз!'}`};
+  r.append(btn,out);return r}
+
+function ex4(){
+  const r=head('Выбери правильное слово 🧩','Нажми на нужное слово: прилагательное или Past Simple.');let n=0;
+  EX4.forEach((d,i)=>{const parts=d[0].split('___');const hint=i==9?'':d[1];
+    const q=$(`<div class="q"><p class="ru">${i+1}. ${parts[0]}<span class="gap">&nbsp;&nbsp;&nbsp;&nbsp;</span>${parts[1].replace(/ about money all week.*$/,'')}</p><div class="chips"></div></div>`);
+    if(i==9)q.querySelector('.ru').innerHTML='10. She ___ about money all week, so she felt down. 😔'.replace('___','<span class="gap">&nbsp;&nbsp;&nbsp;&nbsp;</span>');
+    const ch=q.querySelector('.chips'),gap=q.querySelector('.gap');let ok=false;
+    d[2].forEach((w,j)=>{const c=$(`<button class="chip">${w}</button>`);
+      c.onclick=()=>{if(ok)return;if(j==d[3]){ok=true;c.classList.add('good');gap.textContent=w;gap.classList.add('f2');q.classList.add('ok');prog(r,++n,EX4.length);if(n==EX4.length)r.appendChild($('<div class="win">🎉 Все верно! Ты звезда! 🌟</div>'))}else{c.classList.remove('bad');void c.offsetWidth;c.classList.add('bad')}};
+      ch.appendChild(c)});
+    r.appendChild(q)});
+  return r}
+
+function ex5(){
+  const r=head('Соедини пары 🔗','Нажми английское предложение, потом русское с тем же смыслом.');
+  let n=0,selE=null,selB=null;
+  const m=$('<div class="m"></div>');r.appendChild(m);
+  const L=EX5.map((d,i)=>({i,t:d[0]})),R=shuffle(EX5.map((d,i)=>({i,t:d[1]})));
+  const mk=(o,side)=>{const b=$(`<button>${o.t}</button>`);b.dataset.i=o.i;b.dataset.s=side;return b};
+  const lb=L.map(o=>mk(o,'l')),rb=R.map(o=>mk(o,'r'));
+  const order=[];for(let k=0;k<L.length;k++){order.push(lb[k],rb[k])}
+  m.style.display='none';
+  const colL=$('<div style="display:grid;gap:10px"></div>'),colR=$('<div style="display:grid;gap:10px"></div>'),wrap=$('<div class="m" style="align-items:start"></div>');
+  lb.forEach(b=>colL.appendChild(b));rb.forEach(b=>colR.appendChild(b));wrap.append(colL,colR);r.appendChild(wrap);
+  const click=b=>{if(b.classList.contains('done'))return;
+    if(b.dataset.s=='l'){if(selE)selE.classList.remove('sel');selE=b;b.classList.add('sel')}else{selB=b;
+      if(!selE){b.classList.add('bad');setTimeout(()=>b.classList.remove('bad'),350);return}
+      if(selE.dataset.i==b.dataset.i){const c=COL[b.dataset.i%COL.length];[selE,b].forEach(x=>{x.classList.remove('sel');x.classList.add('done');x.style.setProperty('--c',c)});selE=null;prog(r,++n,EX5.length);if(n==EX5.length)r.appendChild($('<div class="win">🏆 Все пары найдены! 💖</div>'))}
+      else{const x=b;x.classList.add('bad');setTimeout(()=>x.classList.remove('bad'),350)}}};
+  [...lb,...rb].forEach(b=>b.onclick=()=>click(b));
+  return r}
+
+function show(i){
+  [...tabs.children].forEach((t,k)=>t.classList.toggle('on',k==i));
+  app.innerHTML='';
+  app.appendChild([
+    ()=>cards(EX1,'Слова-связки 🌈','Тапни или свайпни карточку, чтобы увидеть перевод.'),
+    ()=>cards(EX2,'Эмоции и настроение 😫','Тапни или свайпни карточку, чтобы увидеть перевод.'),
+    ex3,ex4,ex5][i]());
+  window.scrollTo(0,0)}
+show(0);
+</script>
+</body>
+</html>
